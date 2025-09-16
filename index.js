@@ -1,6 +1,24 @@
-let pasta = document.getElementById("khred-pasta")
-let petzza = document.getElementById("khred-petzza")
-let brger = document.getElementById("khred-brger")
-let salad = document.getElementById("khred-salad")
+let pasta = 0
+let pizza = 0
+let brger = 0
+let salad = 0
+let data
+let fetchedData = []
+async function fetchdata(){
+    try{
+        let responce = await fetch ("index.json",{method: "get"})
+        data = await responce.json()
 
-document.addEventListener
+        data.product.name.forEach((item) => {
+            fetchedData.push(item)
+        })
+        console.log(fetchedData);
+        
+    }catch(error){
+        console.log(error);
+    }
+    finally{
+        console.log("fetch data is over");
+        
+    }
+} 
