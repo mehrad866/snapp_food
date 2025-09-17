@@ -3,16 +3,14 @@ let pizza = 0
 let brger = 0
 let salad = 0
 let price = 0
-let data
 let firstkh = true
 let ArraySabtSefaresh = []
 let fetchedData = []
 let p_sbad = document.getElementById("sbad")
 async function fetchdata(){
     try{
-        let responce = await fetch ("index.json",{method: "get"})
-        data = await responce.json()
-
+        let responce = await fetch ("index.json")
+        let data = await responce.json()
         data.forEach((item) => {
             fetchedData.push(item)
         })
@@ -23,7 +21,8 @@ async function fetchdata(){
         console.log("fetch data is over");
         
     }
-} 
+}
+fetchdata() 
 function fbrger(){
     brger++
     render()
@@ -41,6 +40,7 @@ salad++
     render()
 }
 function render(){
+    price=fetchedData[0].cost*pasta+fetchedData[1].cost*brger+fetchedData[2].cost*pizza+fetchedData[3].cost*salad
     if(firstkh == true){
         price=price*90/100
     }
