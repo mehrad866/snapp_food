@@ -16,10 +16,10 @@
         <div style="display: flex;">
             <div class="card">
                 <div class="card-body">
-                    <p class="card-title"><b>پاستا الفردو</b></p>
+                    <p class="card-title" ><b>پاستا الفردو</b></p>
                     <p class="card-text">سس خامه ای و قارچ و مرغ</p>
                     <p><b>330000 تومان</b></p>
-                    <button class="btn btn-outline-secondary" id="btn_pasta">افزودن به سبد خرید</button>
+                    <button class="btn btn-outline-secondary" id="btn_pasta" onclick="fpasta()">افزودن به سبد خرید</button>
                 </div>
             </div>
             <div class="card">
@@ -27,7 +27,7 @@
                     <p class="card-title"><b>پیتزا مارگاریتا</b></p>
                     <p class="card-text">سس گوجه پنیر موزارلا</p>
                     <p><b>360000 تومان</b></p>
-                    <button class="btn btn-outline-secondary " id="btn_pizza">افزودن به سبد خرید</button>
+                    <button class="btn btn-outline-secondary " id="btn_pizza" onclick="fpizza()">افزودن به سبد خرید</button>
                 </div>
             </div>
             <div class="card">
@@ -35,7 +35,7 @@
                     <p class="card-title"><b>برگر دوبل</b></p>
                     <p class="card-text">گوشت دوبل پنیر چدار</p>
                     <p><b>280000 تومان</b></p>
-                    <button class="btn btn-outline-secondary" id="btn_brger">افزودن به سبد خرید</button>
+                    <button class="btn btn-outline-secondary" id="btn_brger" onclick="fbrger()">افزودن به سبد خرید</button>
                 </div>
             </div>
             <div class="card">
@@ -43,15 +43,14 @@
                     <p class="card-title"><b>سالاد سزار</b></p>
                     <p class="card-text">کاهو نان تست سس سزار</p>
                     <p><b>190000 تومان</b></p>
-                    <button class="btn btn-outline-secondary" id="btn_salad">افزودن به سبد خرید</button>
+                    <button class="btn btn-outline-secondary" id="btn_salad" onclick="fsalad()">افزودن به سبد خرید</button>
                 </div>
             </div>
         </div>
         <h2>سبد خرید</h2>
-        <div>
-            <p class="p-sbad" id="sbad">سبد خرید شما هنوز خالی است</p>
+        <div class="p-sbad" id="sbad">
         </div>
-        <button class="btn btn-outline-secondary">ثبت سفارش</button>
+        <button class="btn btn-outline-secondary" onclick="sabt()">ثبت سفارش</button>
         <script src="index.js"></script>
     </body>
 </html>

@@ -2,20 +2,18 @@ let pasta = 0
 let pizza = 0
 let brger = 0
 let salad = 0
-let price
+let price = 0
 let data
+let firstkh = true
+let ArraySabtSefaresh = []
 let fetchedData = []
-let btn_pasta = document.getElementById("btn_pasta")
-let btn_pizza = document.getElementById("btn_pizza")
-let btn_brger = document.getElementById("btn_brger")
-let btn_salad = document.getElementById("btn_salad")
 let p_sbad = document.getElementById("sbad")
 async function fetchdata(){
     try{
         let responce = await fetch ("index.json",{method: "get"})
         data = await responce.json()
 
-        data.product.name.forEach((item) => {
+        data.forEach((item) => {
             fetchedData.push(item)
         })
     }catch(error){
@@ -26,25 +24,26 @@ async function fetchdata(){
         
     }
 } 
-
-btn_brger.addEventListener("click" , function (){
+function fbrger(){
     brger++
     render()
-})
-btn_pasta.addEventListener("click" , function (){
+}
+function fpasta(){
     pasta++
     render()
-})
-btn_pizza.addEventListener("click" , function (){
+}
+function fpizza(){
     pizza++
     render()
-})
-btn_salad.addEventListener("click" , function (){
-    salad++
+}
+function fsalad(){
+salad++
     render()
-})
+}
 function render(){
-    price = fetchedData[0].cost*pasta+ fetchedData[1].cost*brger+ fetchedData[2].cost*pizza+ fetchedData[3].cost*salad
+    if(firstkh == true){
+        price=price*90/100
+    }
     p_sbad.innerHTML=`
     
     <p>تعداد برگر ${brger}</p>
@@ -53,4 +52,19 @@ function render(){
     <p>تعداد پاستا ${pasta}</p>
     <p>مجموع قیمت ${price}</p>
     `
+}
+
+function sabt(){
+    ArraySabtSefaresh.push(brger)
+    ArraySabtSefaresh.push(pasta)
+    ArraySabtSefaresh.push(pizza)
+    ArraySabtSefaresh.push(salad)
+    brger = 0   
+    pasta = 0   
+    pizza = 0   
+    salad = 0
+    console.log(ArraySabtSefaresh);
+    ArraySabtSefaresh.splice(0,4)
+    p_sbad.innerHTML=``   
+    firstkh = false
 }
