@@ -18,6 +18,9 @@ let numder =0
 let firstkh = true
 let ArraySabtSefaresh = []
 let fetchedData = []
+let colorInfo = "bg-info"
+let colordanger = "bg-danger"
+let color = ""
 
 
 async function fetchdata(){
@@ -95,11 +98,17 @@ function fetchdata2(){
 }
 
 function rendermeno() {
+    if(numder/2 == 0){
+        color = colorInfo
+    }
+    else{
+        color = colordanger
+    }
     if(input_title.value == "" || input_cost.value == "" || input_info.value == ""){
         error.innerHTML= "لطفا فیلد ها را پر کنید"
     }
     else{
-
+        
     fetchdata2()
     input_cost.value = ""
     input_info.value = ""
@@ -107,8 +116,8 @@ function rendermeno() {
     input_img.value = ""
     body.innerHTML += `
     <div style="padding:5px;" class="card">
-    <div class="card-body">
-    <img alt="${fetcheddata2[numder].title}" src="${fetcheddata2[numder].img}" height="200px" width="200px">
+    <div class="card-body ${color}">
+    <img alt="${fetcheddata2[numder].title}" src="${fetcheddata2[numder].img}" height="150px" width="150px">
     <p class="card-title">${fetcheddata2[numder].title}</p>
     <p class="card-text">${fetcheddata2[numder].info}</p>
     <p>${fetcheddata2[numder].cost}</p>
